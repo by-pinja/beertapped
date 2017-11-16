@@ -6,7 +6,7 @@
 podTemplate(label: 'beertapped', idleMinutes:30,
   containers: [
     containerTemplate(name: 'node', image: 'node:7.10.0', ttyEnabled: true, command: '/bin/sh -c', args: 'cat'),
-    containerTemplate(name: 'docker', image: 'ptcos/docker-client:1.1.18', alwaysPullImage: true, ttyEnabled: true, command: '/bin/sh -c', args: 'cat')
+    containerTemplate(name: 'docker', image: 'ptcos/docker-client:latest', alwaysPullImage: true, ttyEnabled: true, command: '/bin/sh -c', args: 'cat')
   ]
 ) {
     def project = 'beertapped'
