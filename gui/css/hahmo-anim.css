@@ -253,6 +253,19 @@
 }
 }
 
+@-webkit-keyframes puhetta /* Safari and Chrome */
+{
+  0% {
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(0deg) translateZ(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(90deg) translateZ(0);
+  }
+}
+
 @keyframes varjo-anim
 {
 0% {

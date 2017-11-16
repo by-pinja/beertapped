@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using CsvHelper;
 using Newtonsoft.Json.Linq;
+using RestEase;
 
 namespace untappd
 {
@@ -10,36 +13,26 @@ namespace untappd
     {
         static void Main(string[] args)
         {
-            var json = File.ReadAllText(@"data.json");
+            // Fetch data from Untappd
 
-            dynamic yourObject = JObject.Parse(json);
+            var response = GetData().Result["response"];
+            var totalCount = double.Parse(response["total_count"].ToString(), CultureInfo.InvariantCulture);
 
-            var objects = new List<Beer>();
-
-            var all = yourObject.all;
-
-            foreach (var groupOfData in all)
+            var userBeers = ParseResponse(response);
+            
+            for (var offset = 50; offset < totalCount; offset += 50)
             {
-                var items = groupOfData.response.beers.items;
-
-                foreach (var item in items)
-                {
-                    string style = item.beer.beer_style;
-                    objects.Add(new Beer
-                    {
-                        Rating = item.rating_score,
-                        Styles = style.Split(' '),
-                        Abv = item.beer.beer_abv,
-                        Ibu = item.beer.beer_ibu
-                    });
-                }
+                response = GetData(offset).Result["response"];
+                userBeers.AddRange(ParseResponse(response));
             }
 
-            // var groups = objects.SelectMany(m => m.Styles).Select(m => m).Where(m => m != "-" && m != "/").Distinct();
+            // Convert Beer to CSV
+            WriteCsv(userBeers);
+        }
 
-            // var numberOfObjects = groups.GroupBy(m => new {group = m, number = objects.Count(o => o.Styles.Contains(m))}).Where(m => m.Key.number > 5).OrderByDescending(m => m.Key.number);
-
-            var csvItems = objects.Where(m => m.Rating > 0).Select(m => new CsvBeer
+        private static void WriteCsv(List<Beer> userBeers)
+        {
+            var csvItems = userBeers.Where(m => m.Rating > 0).Select(m => new CsvBeer
             {
                 Abv = m.Abv.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture),
                 Ibu = m.Ibu.ToString(),
@@ -63,7 +56,36 @@ namespace untappd
 
             testWrite.Flush();
         }
+
+        static async Task<JObject> GetData(int offset = 0)
+        {
+            return await RestClient.For<IUntappdRestApi>("https://api.untappd.com")
+                .GetUserAsync("ajaska", "13A8DEAF7B8F0272256990BB7F72169C1F37E7C3", 0);
+        }
+
+        static List<Beer> ParseResponse(dynamic response)
+        {
+            var userBeers = new List<Beer>();
+
+            var items = response.beers.items;
+
+            foreach (var item in items)
+            {
+                string style = item.beer.beer_style;
+                userBeers.Add(new Beer
+                {
+                    Rating = item.rating_score,
+                    Styles = style.Split(' '),
+                    Abv = item.beer.beer_abv,
+                    Ibu = item.beer.beer_ibu
+                });
+            }
+
+            return userBeers;
+        }
     }
+
+
 
     public class Beer
     {
