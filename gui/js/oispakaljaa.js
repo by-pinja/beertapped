@@ -77,6 +77,15 @@
         document.getElementById("suu-auki").style.display = "block";
 
         var msg = new SpeechSynthesisUtterance(response);
+
+        var voices = speechSynthesis.getVoices();
+
+        for(var i = 0; i < voices.length ; i++) {
+            if (voices[i].lang == 'fi-FI') {
+                msg.voice = voices[i];
+            }
+        }
+
         window.speechSynthesis.speak(msg);
 
         msg.onend = function(event) {
@@ -87,6 +96,21 @@
 
     function setResponseJSON(response) {
         console.log(response);
+
+        if (response.result.action === "username" && response.result.parameters.username != null && response.result.parameters.username.length !== 0) {
+            // Make api call
+            console.log("Lets call");
+
+            var url = "https://beertapped-master.protacon.cloud/api/bestBeer/" + response.result.parameters.username;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.open('GET', url, true);
+            xhr.send(null);
+        }
        /* var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
             "<div class=\"bubble-wrap\">\n" +
