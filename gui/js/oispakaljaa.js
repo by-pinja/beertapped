@@ -102,25 +102,12 @@
             console.log("Lets call");
 
             var url = "https://beertapped-master.protacon.cloud/api/bestBeer/" + response.result.parameters.username;
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    var responseText = xhr.responseText;
-                    console.log(responseText);
-                    setResponseOnNode(responseText.andTheWinnerIs);
-                }
-            };
-            xhr.open('GET', url, true);
-           /*xhr.setRequestHeader("Access-Control-Allow-Origin", "*");*/
-            xhr.send(null);
+
+            $.get( url, function( data ) {
+                console.log(data);
+                setResponseOnNode(data.andTheWinnerIs);
+            });
         }
-       /* var bubbleContainer = document.getElementById("bubbles");
-        bubbleContainer.innerHTML +=
-            "<div class=\"bubble-wrap\">\n" +
-            "      <div class=\"bubble right\">\n" +
-            response.result.fulfillment.speech +
-            "      </div>\n" +
-            "</div>"*/
     }
 
     function sendRequest() {
