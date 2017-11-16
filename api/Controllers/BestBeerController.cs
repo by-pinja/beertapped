@@ -51,7 +51,7 @@ namespace api.Controllers
 
             var values = (JArray) response["Results"]["output1"]["value"]["Values"];
             var bestOfTheBest = double.Parse(values[0][10].ToString(), CultureInfo.InvariantCulture) > double.Parse(values[1][10].ToString(), CultureInfo.InvariantCulture) 
-                ? "Kujan IPA" : "South Pacific Pale Ale";
+                ? "Sack Prummer Strong Rock Lager" : "Nuptererry Imperial Special Stout";
 
             return Ok(new
             {
