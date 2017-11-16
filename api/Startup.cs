@@ -36,14 +36,6 @@ namespace api
 
             app.UseMvc();
             app.UseStaticFiles();
-
-            //EnsureMigrationOfContext<ApiDbContext>(app);
-        }
-
-        private static void EnsureMigrationOfContext<T>(IApplicationBuilder app) where T : DbContext
-        {
-            var context = app.ApplicationServices.GetService<T>();
-            context.Database.Migrate();
         }
     }
 }
