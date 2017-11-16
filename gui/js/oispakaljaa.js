@@ -105,10 +105,13 @@
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == XMLHttpRequest.DONE) {
-                    console.log(xhr.responseText);
+                    var responseText = xhr.responseText;
+                    console.log(responseText);
+                    setResponseOnNode(responseText.andTheWinnerIs);
                 }
             };
             xhr.open('GET', url, true);
+           /*xhr.setRequestHeader("Access-Control-Allow-Origin", "*");*/
             xhr.send(null);
         }
        /* var bubbleContainer = document.getElementById("bubbles");
