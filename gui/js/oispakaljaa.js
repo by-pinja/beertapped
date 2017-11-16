@@ -30,7 +30,6 @@
         window.init(accessToken);
         queryInput.addEventListener("keydown", queryInputKeyDown);
         sendButton.addEventListener("click", sendButtonClick);
-
     }
 
     function scrollPosition() {
@@ -43,20 +42,13 @@
             return;
         }
         messageSend();
-
     }
 
     function sendButtonClick(event) {
         messageSend();
-
     }
 
     function createQueryNode(query) {
-        /*var node = document.createElement('div');
-        node.className = "clearfix left-align left card-panel green accent-1";
-        node.innerHTML = query;
-        resultDiv.appendChild(node); */
-
         var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
             "<div class=\"bubble-wrap\">\n" +
@@ -80,13 +72,16 @@
 
         scrollPosition();
 
-        document.getElementById("suu").className = "suu-auki";
+        document.getElementById("suu").style.display = "none";
+        document.getElementById("suu-alku").style.display = "none";
+        document.getElementById("suu-auki").style.display = "block";
 
         var msg = new SpeechSynthesisUtterance(response);
         window.speechSynthesis.speak(msg);
 
         msg.onend = function(event) {
-            document.getElementById("suu").className = 'suu';
+            document.getElementById("suu-auki").style.display = "none";
+            document.getElementById("suu").style.display = "block";
         }
     }
 
