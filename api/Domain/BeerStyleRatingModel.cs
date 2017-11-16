@@ -15,5 +15,6 @@ namespace api.Domain
         public string Lager { get; set; }
         public string Imperial { get; set; }
         public string Stout { get; set; }
+        public string Ale { get; set; }
     }
 }

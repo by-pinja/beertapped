@@ -6,7 +6,7 @@ using RestEase;
 
 namespace api.Controllers
 {
-    public class ValuesController : Controller
+    public class BestBeerController : Controller
     {
         [HttpGet("api/bestbeer/{userName}")]
         public async Task<IActionResult> Get(string userName)
