@@ -21,7 +21,7 @@ namespace api
         {
             services.AddMvc();
 
-            services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer(Configuration["Database:ConnectionString"]));
+            services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer("Server=tcp:beertapped.database.windows.net,1433;Initial Catalog=beertapped-master;Persist Security Info=False;User ID=beertapped;Password=Peukalo123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -34,6 +34,7 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
             app.UseMvc();
             app.UseStaticFiles();
         }
