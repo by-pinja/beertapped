@@ -27,16 +27,16 @@ namespace api.Common
             var models = userBeers.Where(m => m.Rating > 0).Select(m => new BeerStyleRatingModel
             {
                 User = userName,
-                Abv = m.Abv.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture),
-                Ibu = m.Ibu.ToString(),
+                Abv = m.Abv,
+                Ibu = m.Ibu,
                 Rating = m.Rating,
-                Ale = m.Styles.Contains("Ale") ? "1" : "0",
-                American = m.Styles.Contains("American") ? "1" : "0",
-                Ipa = m.Styles.Contains("Ipa") ? "1" : "0",
-                Lager = m.Styles.Contains("Lager") ? "1" : "0",
-                Pale = m.Styles.Contains("Pale") ? "1" : "0",
-                Imperial = m.Styles.Contains("Imperial") ? "1" : "0",
-                Stout = m.Styles.Contains("Stout") ? "1" : "0"
+                Ale = m.Styles.Contains("Ale") ? 1 : 0,
+                American = m.Styles.Contains("American") ? 1 : 0,
+                Ipa = m.Styles.Contains("Ipa") ? 1 : 0,
+                Lager = m.Styles.Contains("Lager") ? 1 : 0,
+                Pale = m.Styles.Contains("Pale") ? 1 : 0,
+                Imperial = m.Styles.Contains("Imperial") ? 1 : 0,
+                Stout = m.Styles.Contains("Stout") ? 1 : 0
             }).ToList();
 
             return models;
