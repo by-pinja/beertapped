@@ -1,44 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using RestEase;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("api/bestbeer/{userName}")]
+        public async Task<IActionResult> Get(string userName)
         {
-            return new string[] { "value1", "value2" };
-        }
+            if (string.IsNullOrEmpty(userName))
+                return BadRequest();
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+            var foo = new
+            {
+                Inputs = new
+                {
+                    input1 = new
+                    {
+                        ColumnNames = new [] { "beer_abv", "rating", "beer_ibu", "style" },
+                        Values = new [] { new [] { "0", "0", "0", "IPA" }, new[] { "0", "0", "0", "Ale" } }
+                    }
+                },
+                GlobalParameters = new {}
+            };
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+            var response = await RestClient.For<IAzureMlRestApi>("https://ussouthcentral.services.azureml.net")
+                .GetUserAsync(foo, "Bearer fsenvvHHnkmH/B5FDyeIjUgGQHusbYrJrTHQwqAdFRFINFbvtE3/HoSLW9V1xljuShlNIwlTNoWrMhWH1hTORQ==");
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            var values = (JArray) response["Results"]["output1"]["value"]["Values"];
+            var bestOfTheBest = double.Parse(values[0][4].ToString()) > double.Parse(values[1][4].ToString()) ? "Kujan IPA" : "South Pacific Pale Ale";
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(new
+            {
+                AndTheWinnerIs = bestOfTheBest
+            });
         }
     }
 }

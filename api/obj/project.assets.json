@@ -2757,6 +2757,23 @@
           "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
+      "RestEase/1.4.4": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Net.Http": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Emit": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/RestEase.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/RestEase.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -7574,6 +7591,19 @@
         "lib/netstandard1.0/Remotion.Linq.xml",
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.dll",
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml"
+      ]
+    },
+    "RestEase/1.4.4": {
+      "sha512": "1oLe8HGrNvpBz7/s69oTEmNyHryYBb/VvPqLW3hnjpWqbFNndss0WcOrPHLWDAqy5GlNVVnHMhOfqKYdDltaTA==",
+      "type": "package",
+      "path": "restease/1.4.4",
+      "files": [
+        "lib/net45/RestEase.dll",
+        "lib/net45/RestEase.xml",
+        "lib/netstandard1.1/RestEase.dll",
+        "lib/netstandard1.1/RestEase.xml",
+        "restease.1.4.4.nupkg.sha512",
+        "restease.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -12529,7 +12559,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "RestEase >= 1.4.4"
     ]
   },
   "packageFolders": {
@@ -12538,6 +12569,9 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\github\\beertapped\\api\\api.csproj",
       "projectName": "api",
@@ -12573,9 +12607,13 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "RestEase": {
+            "target": "Package",
+            "version": "1.4.4"
+          },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0.0",
+            "version": "2.0",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.All": {
