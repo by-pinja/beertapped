@@ -60,6 +60,8 @@ metadata:
   namespace: beertapped
   annotations:
     kubernetes.io/ingress.class: traefik
+  labels:
+    traefik-type: public
 spec:
   rules:
     - host: beertapped-master.protacon.cloud
