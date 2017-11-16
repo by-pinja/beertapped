@@ -69,33 +69,7 @@
         scrollPosition();
     }
 
-    function createResponseNode() {
-        /* var node = document.createElement('div');
-        node.className = "clearfix right-align right card-panel blue-text text-darken-2 hoverable";
-        node.innerHTML = "...";
-        resultDiv.appendChild(node);
-        return node; */
-    }
-
-    var timeout = 200;
-    var auki = false;
-    function changeMouth(num) {
-        if (auki) {
-            document.getElementById("suu").className = "suu";
-            auki = false;
-        } else  {
-            document.getElementById("suu").className = "suu-auki";
-            auki = true;
-        }
-        var number = num + 1;
-        if (number < 10) {
-            setTimeout("changeMouth(number)", timeout);
-        }
-    }
-
-    function setResponseOnNode(response, node) {
-        // node.innerHTML = response ? response : "[empty response]";
-        // node.setAttribute('data-actual-response', response);
+    function setResponseOnNode(response) {
         var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
             "<div class=\"bubble-wrap\">\n" +
@@ -106,12 +80,14 @@
 
         scrollPosition();
 
+        document.getElementById("suu").className = "suu-auki";
+
         var msg = new SpeechSynthesisUtterance(response);
         window.speechSynthesis.speak(msg);
 
-        var i = 0;
-        changeMouth(i);
-
+        msg.onend = function(event) {
+            document.getElementById("suu").className = 'suu';
+        }
     }
 
     function setResponseJSON(response) {
@@ -136,7 +112,6 @@
         if (value.trim() == '') return; // Skip empty requests
 
         createQueryNode(value);
-        var responseNode = createResponseNode();
 
         sendText(value)
             .then(function(response) {
@@ -147,11 +122,11 @@
                     result = "";
                 }
                 setResponseJSON(response);
-                setResponseOnNode(result, responseNode);
+                setResponseOnNode(result);
             })
             .catch(function(err) {
                 setResponseJSON(err);
-                setResponseOnNode("Something goes wrong", responseNode);
+                setResponseOnNode("Something goes wrong");
             });
     }
 
