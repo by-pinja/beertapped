@@ -60,7 +60,7 @@ namespace untappd
         static async Task<JObject> GetData(int offset = 0)
         {
             return await RestClient.For<IUntappdRestApi>("https://api.untappd.com")
-                .GetUserAsync("ajaska", "13A8DEAF7B8F0272256990BB7F72169C1F37E7C3", offset);
+                .GetUserAsync("KaljaKameli", "13A8DEAF7B8F0272256990BB7F72169C1F37E7C3", offset);
         }
 
         static List<Beer> ParseResponse(dynamic response)
