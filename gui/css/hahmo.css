@@ -1,0 +1,297 @@
+.tuoppi-wrapper{
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
+
+.tuoppi{
+    width: 196px;
+    height: 260px;
+    border-radius: 5px 5px 50px 50px;
+    /*background: #FFE4BE; */
+    border: 15px solid rgba(0, 0, 0, 1);
+  animation:kasvu 0.7s 0.4s 1 ease, heiluu 3s 3.3s infinite alternate ease-in-out;
+  -webkit-animation:kasvu 0.7s 0.4s 1 ease, heiluu 3s 3.3s infinite alternate ease-in-out;
+/*
+  animation:grow 0.7s 0.4s 1 ease;
+  -webkit-animation:grow 0.7s 0.4s 1 ease;
+*/
+  transform-origin: bottom;
+  -webkit-transform-origin: bottom;
+  -webkit-transform:scale(0) translateZ(0);
+  transform:scale(0) translateZ(0);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.tuoppi:hover .suu {
+  background: #333;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
+
+.vaahto-sivulta{
+  width:232px;
+  height: 0px;
+  background: #ffffff;
+  border-radius: 0px 0px 54px 28px;
+  margin-left: -18px;
+  margin-top: -17px; 
+  animation:vaahto-sivulta-anim 4.7s 0.9s 1 ease-in-out;
+  animation-fill-mode: forwards;
+  -webkit-animation:vaahto-sivulta-anim 4.7s 0.9s 1 ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  position: relative;
+  z-index: 2;
+}
+
+.vaahto-top{
+  width: 196px;
+  height: 40px;
+  opacity: 0;
+    border-radius: 20px 20px 0px 0px;
+  background: #ffffff;
+  position: relative;
+  top: -40px;
+  left: 82px;
+  transform: translateX(-64px);
+  -webkit-transform: translateX(-64px);
+  transform-origin: right;
+  -webkit-transform-origin: right;
+  animation:vaahto-top-anim 1.7s 1s 1 ease;
+  -webkit-animation:vaahto-top-anim 1.7s 1s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma{
+    width: 49px;
+    height: 60px;
+    opacity: 0;
+    border-radius: 0 0 25px 25px;
+    background: #ffffff;
+    position: absolute;
+    top: -20px;
+    left: 12%;
+    z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma2{
+     width: 203px;
+    height: 20px;
+    opacity: 0;
+    border-radius: 0 0 65px 65px;
+    background: #ffffff;
+    position: absolute;
+    top: -15px;
+    left: -2%;
+    z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma3{
+    width: 50px;
+    height: 40px;
+    opacity: 0;
+    border-radius: 0 0 25px 25px;
+    background: #ffffff;
+    position: absolute;
+    top: -20px;
+    left: 70%;
+    z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma4{
+    width: 20px;
+    height: 100px;
+    opacity: 0;
+    border-radius: 0 0 25px 25px;
+    background: #ffffff;
+    position: absolute;
+    top: -20px;
+    left: 91%;
+    z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma5{
+    width: 40px;
+    height: 70px;
+    opacity: 0;
+    border-radius: 0 0 18px 17px;
+    background: #ffffff;
+    position: absolute;
+    top: -20px;
+    left: -4%;
+    z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.vaahto-valuma6{
+    width: 100px;
+    height: 50px;
+    opacity: 0;
+    border-radius: 0 0 38px 25px;
+    background: #ffffff;
+    position: absolute;
+    top: -20px;
+    left: 30%;
+  z-index: 100;
+  transform: translateX(-27px);
+  -webkit-transform: translateX(-27px);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  -webkit-animation:vaahto-valuma-anim 5.7s 1.4s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.olut{
+  width: 196px;
+  height: 0px;
+  border-radius: 0px 0px 33px 33px;
+ /*  background: #ffcc00;
+  background: linear-gradient(to bottom, #bc7012 0%, #efd002 100%); */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  animation:olut 0.4s 0.8s 1 linear, AnimationName 5s;
+  animation-fill-mode: forwards;
+  -webkit-animation:olut 0.4s 0.8s 1 linear, olut-heiluu 5s ease infinite;
+  -webkit-animation-fill-mode: forwards;
+  z-index: 3;
+
+  background: linear-gradient(71deg, #bc7012, #efd002, #bc7012);
+  background-size: 600% 600%;
+
+}
+.kahva{
+    width: 30px;
+    height: 123px;
+    border-radius: 0px 40px 40px 0px;
+    position: absolute;
+    top: 23px;
+    border: 15px solid rgba(0, 0, 0, 1);
+  animation:kasvu 0.7s 1.3s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation:kasvu 0.7s 1.3s 1 ease;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+
+.suu{
+width: 116px;
+    height: 33px;
+    border-radius: 33px 33px 33px 33px;
+    background: #555;
+    position: absolute;
+    top: 180px;
+    left: 32%;
+    margin-left: -33px;
+  animation:kasvu 0.7s 2.6s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation:kasvu 0.7s 2.6s 1 ease;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.kahva#right{
+  right: -60px;
+}
+.silma-holder{
+  opacity: 1;
+  position: absolute;
+  top: 70px;
+
+}
+.silma-holder#left{
+  left: 35px;
+  z-index: 5;
+}
+.silma-holder#right{
+  right: 75px;
+}
+
+.silma{
+    width: 40px;
+    height: 68px;
+    border-radius: 50px;
+    background: #555;
+    position: absolute;
+    top: -18px;
+    left: -10%;
+    margin-left: -10px;
+  animation:kasvu 0.7s 2.2s 1 ease, vinkkaus 8s 4.4s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-animation:kasvu 0.7s 2.2s 1 ease, vinkkaus 8s 4.4s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+}
+
+.varjo-wrapper{
+width: 78px;
+    height: 283px;
+    position: absolute;
+    left: -1px;
+    bottom: -6px;
+    z-index: 3;
+    overflow: hidden;
+}
+.varjo{
+    width: 198px;
+    height: 310px;
+    border-radius: 20px;
+    background: rgba(149,36,0,0.15);
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+  animation:varjo-anim 1.5s 0.5s 1 ease;
+  animation-fill-mode: forwards;
+  -webkit-animation:varjo-anim 1.5s 0.5s 1 ease;
+  -webkit-animation-fill-mode: forwards;
+}

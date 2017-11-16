@@ -12569,9 +12569,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\github\\beertapped\\api\\api.csproj",
       "projectName": "api",
@@ -12607,10 +12604,6 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "RestEase": {
-            "target": "Package",
-            "version": "1.4.4"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "2.0",
@@ -12619,6 +12612,10 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "RestEase": {
+            "target": "Package",
+            "version": "1.4.4"
           }
         },
         "imports": [

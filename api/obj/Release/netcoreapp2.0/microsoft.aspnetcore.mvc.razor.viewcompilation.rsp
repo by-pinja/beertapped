@@ -1,0 +1,5 @@
+C:\github\beertapped\api
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=api
+--content-root=C:\github\beertapped\api
+--file=
