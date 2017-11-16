@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Globalization;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using RestEase;
@@ -30,7 +31,8 @@ namespace api.Controllers
                 .GetUserAsync(foo, "Bearer fsenvvHHnkmH/B5FDyeIjUgGQHusbYrJrTHQwqAdFRFINFbvtE3/HoSLW9V1xljuShlNIwlTNoWrMhWH1hTORQ==");
 
             var values = (JArray) response["Results"]["output1"]["value"]["Values"];
-            var bestOfTheBest = double.Parse(values[0][4].ToString()) > double.Parse(values[1][4].ToString()) ? "Kujan IPA" : "South Pacific Pale Ale";
+            var bestOfTheBest = double.Parse(values[0][4].ToString(), CultureInfo.InvariantCulture) > double.Parse(values[1][4].ToString(), CultureInfo.InvariantCulture) 
+                ? "Kujan IPA" : "South Pacific Pale Ale";
 
             return Ok(new
             {

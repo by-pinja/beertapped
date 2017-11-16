@@ -1,1 +1,0 @@
-{"Results":{"output1":{"type":"table","value":{"ColumnNames":["beer_abv","rating","beer_ibu","style","Scored Labels"],"ColumnTypes":["Double","Double","Int32","String","Double"],"Values":[["0","0","0","IPA","0.911100924015045"]]}}}}
