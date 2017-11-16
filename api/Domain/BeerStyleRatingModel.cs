@@ -7,14 +7,14 @@ namespace api.Domain
         public Guid Id { get; protected set; }
         public string User { get; set; }
         public double Rating { get; set; }
-        public string Ibu { get; set; }
-        public string Abv { get; set; }
-        public string Ipa { get; set; }
-        public string Pale { get; set; }
-        public string American { get; set; }
-        public string Lager { get; set; }
-        public string Imperial { get; set; }
-        public string Stout { get; set; }
-        public string Ale { get; set; }
+        public int Ibu { get; set; }
+        public double Abv { get; set; }
+        public int Ipa { get; set; }
+        public int Pale { get; set; }
+        public int American { get; set; }
+        public int Lager { get; set; }
+        public int Imperial { get; set; }
+        public int Stout { get; set; }
+        public int Ale { get; set; }
     }
 }
