@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/puhekupla.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/hahmo.css">
+  <link rel="stylesheet" type="text/css" href="css/hahmo-anim.css">
+  <script src="js/init.js"></script>
+  <script src="js/dialogflow-sdk/ApiAi.js"></script>
+  <script src="js/puhe.js"></script>
+  <title>KumpiHana?</title>
+</head>
+
+<body>
+  <div class="tuoppi-wrapper">
+    <div class="tuoppi">
+      <div class="kahva" id="right"></div>
+      <div class="vaahto-sivulta">
+        <div class="vaahto-top"></div>
+      </div>
+      <div class="olut">
+        <div class="varjo-wrapper">
+          <div class="varjo"></div>
+        </div>
+        <div class="vaahto-valuma"></div>
+        <div class="vaahto-valuma2"></div>
+        <div class="vaahto-valuma3"></div>
+        <div class="vaahto-valuma4"></div>
+        <div class="vaahto-valuma5"></div>
+        <div class="vaahto-valuma6"></div>
+        <div class="silma-holder" id="left">
+          <div class="silma"></div>
+        </div>
+
+        <div class="silma-holder" id="right">
+          <div class="silma"></div>
+        </div>
+        <div class="suu"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="bubbles">
+
+  </div>
+
+<div class="puhepalikka">
+    <div class="bubble puhe">
+      <div id="startButton" class="mikki mikki-off" onclick="startButton()"><i class="material-icons">mic</i></div>
+
+      <input placeholder="Puhu tai kirjoita kyssärisi, senkin höpönassu." type="text" id="q" class="puhetekstialue">
+      <div class="send-btn">LÄHETÄ</div>
+    </div>
+
+</div>
+
+  <script defer src="js/oispakaljaa.js"></script>
+</body>
+</html>

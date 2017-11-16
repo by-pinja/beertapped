@@ -1,0 +1,48 @@
+VAAHTOPÄÄ! - tuoppi jolla silmät
+KEGE! - kegeraattori
+
+——
+
+
+puhekuplat:
+https://codepen.io/anshing97/pen/qFDBK
+https://codemyui.com/pure-css-speech-bubble/
+
+——
+
+tausta:
+https://www.gradient-animator.com/
+https://codepen.io/P1N2O/pen/pyBNzX
+
+https://codepen.io/tedmcdo/pen/PqxKXg
+https://stackoverflow.com/questions/41426043/animated-text-with-css-wave
+
+https://codemyui.com/wave-text-animation-css/
+https://codepen.io/tag/wave/
+
+———
+
+hahmo:
+https://codepen.io/aakashrodrigues/pen/Gfhjw/
+https://codepen.io/pedrocampos/pen/ADdtl?page=1&
+
+hoverilla tuima ilme
+klikillä läikkyy
+
+
+äänet:
+
+
+——
+
+konseptivideo:
+AR - hanan tunnistus
+untappedista: oluen perustiedot + ootko juonu, millon viimeksi, arvosanat ka
+“vettä hyi saatana”
+
+——
+
+
+random:
+http://www.creativebloq.com/css3/animation-with-css3-712437
+https://codepen.io/thetallweeks/pen/boinE start on click
