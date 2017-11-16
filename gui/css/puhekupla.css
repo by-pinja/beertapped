@@ -63,6 +63,23 @@
     font-weight: 600;
 }
 
+.bubble-wrap:last-child {
+    margin-left: 160px;
+    /* right: 200px; */
+    text-align: right;
+    background: red;
+    font-size: 24px;
+    /* float: right; */
+    margin-right: 370px;
+    font-weight: 600;
+    animation:kasvu 1s 0s 1 ease;
+    animation-fill-mode: forwards;
+    -webkit-animation:kasvu 1s 0s 1 ease;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
 .bubble.left:after {
     content: '';
     position: absolute;
