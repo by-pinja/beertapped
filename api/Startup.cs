@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using api.Domain;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace api
 {
@@ -17,10 +20,15 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer(Configuration["Database:ConnectionString"]));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -28,6 +36,14 @@ namespace api
 
             app.UseMvc();
             app.UseStaticFiles();
+
+            //EnsureMigrationOfContext<ApiDbContext>(app);
+        }
+
+        private static void EnsureMigrationOfContext<T>(IApplicationBuilder app) where T : DbContext
+        {
+            var context = app.ApplicationServices.GetService<T>();
+            context.Database.Migrate();
         }
     }
 }
