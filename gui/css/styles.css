@@ -6,7 +6,7 @@ body, html{
 }
 
 body {
-    background: rgba(14,103,167,1);
+    background: #0E67A7;
 }
 
 .screen-fade {
@@ -122,6 +122,7 @@ body {
         min-width: 0px;
         font-family: 'Barlow Condensed', sans-serif;
         font-size: 24px;
+        width: 66%;
     }
 
     #bubbles {
