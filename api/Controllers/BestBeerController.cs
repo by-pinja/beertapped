@@ -40,7 +40,7 @@ namespace api.Controllers
                     input1 = new
                     {
                         ColumnNames = new [] { "Rating", "Ibu", "Abv", "Ipa", "Ale", "Pale", "American", "Lager", "Imperial", "Stout" },
-                        Values = new [] { new [] { "0", "0", "4", "1", "0", "0", "0", "0", "0", "0" }, new[] { "0", "0", "5", "0", "1", "0", "0", "0", "0", "0" } }
+                        Values = new [] { new [] { "0", "0", "4", "0", "0", "0", "0", "1", "0", "0" }, new[] { "0", "0", "5", "0", "0", "0", "0", "0", "1", "1" } }
                     }
                 },
                 GlobalParameters = new {}
