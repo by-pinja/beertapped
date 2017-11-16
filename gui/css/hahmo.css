@@ -239,6 +239,10 @@ width: 116px;
     top: 170px;
     left: 32%;
     margin-left: -33px;
+    animation:puhetta 0.5s 0s infinite ease;
+    animation-fill-mode: forwards;
+    -webkit-animation:puhetta 0.5s 0s 1 infinite ease;
+    -webkit-animation-fill-mode: forwards;
 }
 
 .suu{
