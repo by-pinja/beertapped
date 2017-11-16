@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: beertapped
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: beertapped-master
+    version: master
+  name: beertapped-master
+  namespace: beertapped
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beertapped-master
+      version: master
+  template:
+    metadata:
+      labels:
+        app: beertapped-master
+        version: master
+      name: beertapped-master
+    spec:
+      containers:
+      - image: eu.gcr.io/ptcs-docker-registry/beertapped:latest-master
+        imagePullPolicy: Always
+        name: beertapped-master
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: beertapped-master
+    version: master
+  name: beertapped-master
+  namespace: beertapped
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: beertapped-master
+    version: master
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: beertapped-master-ingress
+  namespace: beertapped
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: beertapped-master.protacon.cloud
+      http:
+        paths:
+          - backend:
+              serviceName: beertapped-master
+              servicePort: 80
+  tls:
+    - hosts:
+      - beertapped-master.protacon.cloud
