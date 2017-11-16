@@ -21,6 +21,7 @@ body, html{
     width: 40px;
     height: 40px;
     margin-top: -3px;
+    cursor: pointer;
 }
 
 .mikki-off {
@@ -56,4 +57,5 @@ body, html{
     /* border: 1px solid #555; */
     margin-left: 5px;
     color: #fff;
+    cursor: pointer;
 }

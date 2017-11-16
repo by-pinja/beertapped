@@ -18,16 +18,18 @@
     "use strict";
 
     var ENTER_KEY_CODE = 13;
-    var queryInput, resultDiv, accessTokenInput;
+    var queryInput, resultDiv, sendButton;
     var accessToken = "6bf0429a1bb24bb9a04ebad4066dfcc0";
 
     window.onload = init;
 
     function init() {
         queryInput = document.getElementById("q");
+        sendButton = document.getElementById("sendButton");
         resultDiv = document.getElementById("result");
         window.init(accessToken);
         queryInput.addEventListener("keydown", queryInputKeyDown);
+        sendButton.addEventListener("click", sendButtonClick);
 
     }
 
@@ -40,28 +42,13 @@
         if (event.which !== ENTER_KEY_CODE) {
             return;
         }
+        messageSend();
 
-        var value = queryInput.value;
-        queryInput.value = "";
+    }
 
-        createQueryNode(value);
-        var responseNode = createResponseNode();
+    function sendButtonClick(event) {
+        messageSend();
 
-        sendText(value)
-            .then(function(response) {
-                var result;
-                try {
-                    result = response.result.fulfillment.speech
-                } catch(error) {
-                    result = "";
-                }
-                setResponseJSON(response);
-                setResponseOnNode(result, responseNode);
-            })
-            .catch(function(err) {
-                setResponseJSON(err);
-                setResponseOnNode("Something goes wrong", responseNode);
-            });
     }
 
     function createQueryNode(query) {
@@ -90,6 +77,22 @@
         return node; */
     }
 
+    var timeout = 200;
+    var auki = false;
+    function changeMouth(num) {
+        if (auki) {
+            document.getElementById("suu").className = "suu";
+            auki = false;
+        } else  {
+            document.getElementById("suu").className = "suu-auki";
+            auki = true;
+        }
+        var number = num + 1;
+        if (number < 10) {
+            setTimeout("changeMouth(number)", timeout);
+        }
+    }
+
     function setResponseOnNode(response, node) {
         // node.innerHTML = response ? response : "[empty response]";
         // node.setAttribute('data-actual-response', response);
@@ -98,10 +101,17 @@
             "<div class=\"bubble-wrap\">\n" +
             "      <div class=\"bubble right\">\n" +
             response +
-            "      </div>\n" +
+            "</div>\n" +
             "</div>";
 
         scrollPosition();
+
+        var msg = new SpeechSynthesisUtterance(response);
+        window.speechSynthesis.speak(msg);
+
+        var i = 0;
+        changeMouth(i);
+
     }
 
     function setResponseJSON(response) {
@@ -117,6 +127,32 @@
 
     function sendRequest() {
 
+    }
+
+    function messageSend() {
+        var value = queryInput.value;
+        queryInput.value = "";
+
+        if (value.trim() == '') return; // Skip empty requests
+
+        createQueryNode(value);
+        var responseNode = createResponseNode();
+
+        sendText(value)
+            .then(function(response) {
+                var result;
+                try {
+                    result = response.result.fulfillment.speech
+                } catch(error) {
+                    result = "";
+                }
+                setResponseJSON(response);
+                setResponseOnNode(result, responseNode);
+            })
+            .catch(function(err) {
+                setResponseJSON(err);
+                setResponseOnNode("Something goes wrong", responseNode);
+            });
     }
 
 })();

@@ -24,13 +24,6 @@
   animation-fill-mode: forwards;
 }
 
-.tuoppi:hover .suu {
-  background: #333;
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
-}
-
 .vaahto-sivulta{
   width:232px;
   height: 0px;
@@ -229,12 +222,20 @@ width: 116px;
     top: 180px;
     left: 32%;
     margin-left: -33px;
+/*
   animation:kasvu 0.7s 2.6s 1 ease;
   animation-fill-mode: forwards;
   -webkit-animation:kasvu 0.7s 2.6s 1 ease;
   -webkit-animation-fill-mode: forwards;
   -webkit-transform: scale(0);
-  transform: scale(0);
+  transform: scale(0); */
+}
+
+.suu-auki {
+    background: #333;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
 }
 
 .kahva#right{
