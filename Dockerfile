@@ -1,5 +1,7 @@
-FROM nginx:mainline
+FROM microsoft/aspnetcore:2
+WORKDIR /app
+COPY api/out .
 
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 5000
 
-COPY ./exampleApp/ /usr/share/nginx/html
+ENTRYPOINT ["dotnet", "api.dll"]

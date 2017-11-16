@@ -20,6 +20,7 @@ podTemplate(label: 'beertapped', idleMinutes:30,
         stage('Build') {
             container('dotnet') {
                 sh """
+                    cd ./api/
                     dotnet restore
                     dotnet publish -c Release -o out
                 """
