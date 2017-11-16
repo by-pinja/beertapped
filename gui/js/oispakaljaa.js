@@ -101,12 +101,19 @@
             // Make api call
             console.log("Lets call");
 
+§
             var url = "https://beertapped-master.protacon.cloud/api/bestBeer/" + response.result.parameters.username;
 
-            $.get( url, function( data ) {
-                console.log(data);
-                setResponseOnNode("May I recommend " + data.andTheWinnerIs);
-            });
+            setTimeout(function () {
+                setResponseOnNode("Hmmmmmm...");
+
+                $.get(url, function (data) {
+                    setTimeout(function () {
+                        console.log(data);
+                        setResponseOnNode("May I recommend " + data.andTheWinnerIs);
+                    }, 2000);
+                });
+            }, 10000);
         }
     }
 
