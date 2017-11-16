@@ -5,7 +5,7 @@
 // builds may fail because they reuse same environment if label matches existing.
 podTemplate(label: 'beertapped', idleMinutes:30,
   containers: [
-    containerTemplate(name: 'node', image: 'node:7.10.0', ttyEnabled: true, command: '/bin/sh -c', args: 'cat'),
+    containerTemplate(name: 'dotnet', image: 'microsoft/aspnetcore-build:2', ttyEnabled: true, command: '/bin/sh -c', args: 'cat'),
     containerTemplate(name: 'docker', image: 'ptcos/docker-client:latest', alwaysPullImage: true, ttyEnabled: true, command: '/bin/sh -c', args: 'cat')
   ]
 ) {
@@ -18,19 +18,11 @@ podTemplate(label: 'beertapped', idleMinutes:30,
             checkout_with_tags()
         }
         stage('Build') {
-            container('node') {
-                // sh """
-                //     npm install -g @angular/cli
-                //     npm install
-                //     ng build --prod
-                // """
-            }
-        }
-        stage('Test') {
-            container('node') {
-                // sh """
-                //     npm run test
-                // """
+            container('dotnet') {
+                sh """
+                    dotnet restore
+                    dotnet publish -c Release -o out
+                """
             }
         }
         stage('Package') {
