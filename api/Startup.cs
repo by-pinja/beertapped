@@ -19,7 +19,7 @@ namespace api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddCors().AddMvc();
 
             services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer("Server=tcp:beertapped.database.windows.net,1433;Initial Catalog=beertapped-master;Persist Security Info=False;User ID=beertapped;Password=Peukalo123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
@@ -33,6 +33,8 @@ namespace api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseDefaultFiles();
             app.UseMvc();

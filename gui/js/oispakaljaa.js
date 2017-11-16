@@ -102,14 +102,11 @@
             console.log("Lets call");
 
             var url = "https://beertapped-master.protacon.cloud/api/bestBeer/" + response.result.parameters.username;
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    console.log(xhr.responseText);
-                }
-            };
-            xhr.open('GET', url, true);
-            xhr.send(null);
+
+            $.get( url, function( data ) {
+                console.log(data);
+                setResponseOnNode(data.andTheWinnerIs);
+            });
         }
     }
 
