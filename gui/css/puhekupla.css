@@ -1,0 +1,121 @@
+#bubbles {
+    bottom: 160px;
+    /* overflow-y: auto;
+    overflow: hidden; */
+    position: absolute;
+    width: 100%;
+}
+
+.headbubble {
+    float: left;
+    /* padding: 10px; */
+    margin-left: 15px;
+    margin-top: 0px !important;
+    /* margin-right: 10px; */
+    padding: 0px;
+    background: #fafafa;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin-top: -3px;
+}
+
+.headbubble i {
+    font-size: 52px;
+    margin-left: 4px;
+    margin-top: 4px;
+    color: rgba(51, 51, 51, 0.33);;
+}
+
+.bubble-wrap {
+    margin: 20px;
+}
+
+.bubble {
+    position: relative;
+    padding: 20px;
+    background-color:rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    /*border: #7F7F7F solid 1px; */
+    font-size: 1em;
+    line-height: 1.25em;
+}
+
+.bubble.puhe {
+    min-width:300px;
+}
+
+.puhetekstialue {
+    border: 0;
+}
+
+.bubble.left {
+    margin-right: 420px;
+    margin-left: 105px;
+}
+
+.bubble.right {
+    margin-left: 160px;
+    /* right: 200px; */
+    text-align: right;
+    /* float: right; */
+    margin-right: 370px;
+    font-weight: 600;
+}
+
+.bubble.left:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -16px;
+    top: 50%;
+    margin-top: -16px
+
+}
+
+.bubble.left:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    left: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.bubble.right:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 0 16px 16px;
+    border-color: transparent rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.bubble.right:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 0 16px 16px;
+    border-color: transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    right: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
