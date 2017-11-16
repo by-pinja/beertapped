@@ -27,6 +27,7 @@ namespace api
             }
 
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
