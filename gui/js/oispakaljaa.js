@@ -105,7 +105,7 @@
 
             $.get( url, function( data ) {
                 console.log(data);
-                setResponseOnNode(data.andTheWinnerIs);
+                setResponseOnNode("May I recommend " + data.andTheWinnerIs);
             });
         }
     }
