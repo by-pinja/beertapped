@@ -27,8 +27,10 @@ namespace api.Controllers
                 GlobalParameters = new {}
             };
 
+            var apiKey = "";
+
             var response = await RestClient.For<IAzureMlRestApi>("https://ussouthcentral.services.azureml.net")
-                .GetUserAsync(foo, "Bearer fsenvvHHnkmH/B5FDyeIjUgGQHusbYrJrTHQwqAdFRFINFbvtE3/HoSLW9V1xljuShlNIwlTNoWrMhWH1hTORQ==");
+                .GetUserAsync("ws", "serviceId", foo, $"Bearer {apiKey}");
 
             var values = (JArray) response["Results"]["output1"]["value"]["Values"];
             var bestOfTheBest = double.Parse(values[0][4].ToString(), CultureInfo.InvariantCulture) > double.Parse(values[1][4].ToString(), CultureInfo.InvariantCulture) 
