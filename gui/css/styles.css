@@ -166,5 +166,9 @@ text-align: center;
     #background-wrap {
         display: none;
     }
+
+    #video_elements {
+        display: none;
+    }
 }
 
