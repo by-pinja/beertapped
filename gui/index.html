@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="css/hahmo.css">
   <link rel="stylesheet" type="text/css" href="css/hahmo-anim.css">
   <link rel="stylesheet" type="text/css" href="css/bubbles.css">
+  <link rel="stylesheet" type="text/css" href="css/video.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/dialogflow-sdk/ApiAi.js"></script>
@@ -17,6 +18,7 @@
 </head>
 
 <body>
+
 <div class="screen-fade"></div>
   <div class="tuoppi-wrapper">
     <div class="tuoppi">
@@ -60,7 +62,8 @@
     <div class="bubble puhe">
       <div id="startButton" class="mikki mikki-off" onclick="startButton()"><i class="material-icons">mic</i></div>
 
-      <input placeholder="Talk or write your question, hoepoenassu" type="text" id="q" class="puhetekstialue">
+      <input placeholder="Talk or write your question, hoepoenassu" type="text" id="q" class="puhetekstialue" />
+      <a id="take_a_picture" class="send-btn" href="#" rel="modal:open" style="text-decoration: none">PICTURE</a>
       <div id="sendButton" class="send-btn">SEND</div>
     </div>
 
@@ -80,6 +83,19 @@
     <div class="bubbles x10"></div>
 </div>
 
+<div id="video_container">
+  <div id="video_elements">
+    <video id="v" height="240" width="320"></video>
+    <canvas id="c" height="240" width="320"></canvas>
+    <div class="button_container">
+      <div id="b" class="send-btn">TAKE A PICTURE</div>
+      <div id="d" class="send-btn">CANCEL</div>
+    </div>
+    <div id="u" class="send-btn">UPLOAD</div>
+  </div>
+</div>
+
   <script defer src="js/oispakaljaa.js"></script>
+  <script src="js/video.js"></script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+#video_container {
+    background: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    visibility: hidden;
+    z-index: -3;
+}
+
+#video_container #c {
+    background: #fff;
+    min-height: 240px;
+    min-width: 320px;
+}
+
+#video_container.showMe {
+    visibility: visible;
+    z-index: 99999;
+}
+
+#video_elements {
+    position: relative;
+    top: calc(50% - 120px);
+    left: calc(50% - 320px);
+}
+
+#video_container .button_container {
+    position: relative;
+    bottom: 60px;
+    left: 60px;
+}
+
+#video_container .send-btn {
+    float: left;
+    height: 44px;
+    background: #666;
+}
+
+#video_container #d.send-btn {
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+#video_container #u.send-btn {
+    line-height: 40px;
+    position: relative;
+    left: 240px;
+    top: -60px;
+    visibility: hidden;
+}
+
+#video_container #u.send-btn.showMe {
+    visibility: visible;
+}
