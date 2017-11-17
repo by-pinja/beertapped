@@ -101,7 +101,6 @@
             // Make api call
             console.log("Lets call");
 
-§
             var url = "https://beertapped-master.protacon.cloud/api/bestBeer/" + response.result.parameters.username;
 
             setTimeout(function () {
