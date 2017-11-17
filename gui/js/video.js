@@ -14,6 +14,7 @@ navigator.getUserMedia({video: true}, function(stream) {
             $("#u").addClass("showMe");
 			vcanvas.getContext("2d").drawImage(vvideo, 0, 0, vwidth, vheight);
 			var img = vcanvas.toDataURL("image/png");
+            console.log(img);
 			vcanvas.appendChild(img);
 		};
 	}, function(err) {});
