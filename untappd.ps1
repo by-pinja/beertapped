@@ -1,7 +1,7 @@
 [CmdletBinding()]
 Param(
     [Parameter()][string]$UntappdUser = "ajaska",
-    [Parameter()][string]$ApiKey = "13A8DEAF7B8F0272256990BB7F72169C1F37E7C3"
+    [Parameter()][string]$ApiKey = ""
 )
 
 $ErrorActionPreference = "stop"
