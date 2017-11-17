@@ -144,5 +144,9 @@ body {
         color: #fff;
         cursor: pointer;
     }
+    
+    background-wrap {
+        display: none;
+    }
 }
 
