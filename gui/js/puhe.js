@@ -28,7 +28,6 @@
     };
 
 function startButton(event) {
-    //alert(recognizing);
     if (recognizing) {
         recognition.stop();
         return;

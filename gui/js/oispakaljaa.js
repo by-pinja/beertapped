@@ -65,7 +65,7 @@
         var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
             "<div class=\"bubble-wrap\">\n" +
-            "      <div class=\"bubble right\">\n" +
+            "<div class=\"bubble right\">\n" +
             response +
             "</div>\n" +
             "</div>";
