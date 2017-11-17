@@ -145,7 +145,7 @@ body {
         cursor: pointer;
     }
     
-    background-wrap {
+    #background-wrap {
         display: none;
     }
 }
