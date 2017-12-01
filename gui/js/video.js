@@ -7,13 +7,14 @@ navigator.getUserMedia({video: true}, function(stream) {
 		vvideo.srcObject = stream;
         vvideo.play();
 		vbutton.onclick = function() {
-            if (!localStorage.aws_access_key_id || !localStorage.aws_secret_access_key) {
+            /*if (!localStorage.aws_access_key_id || !localStorage.aws_secret_access_key) {
                 console.error("Please, configure the AWS credentials to use this feature");
                 return;
-            }
+            }*/
             $("#u").addClass("showMe");
 			vcanvas.getContext("2d").drawImage(vvideo, 0, 0, vwidth, vheight);
 			var img = vcanvas.toDataURL("image/png");
+            console.log(img);
 			vcanvas.appendChild(img);
 		};
 	}, function(err) {});
