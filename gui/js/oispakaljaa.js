@@ -44,7 +44,7 @@
 
     }
 
-    function createPictureTaker(response) {
+    function createPictureTaker(response) { // TODO: Tätä tuskin tarttee näin vaikeesti ekassa...
         var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
             "<div class=\"bubble-wrap\">\n" +
@@ -73,11 +73,15 @@
 
         window.speechSynthesis.speak(msg);
 
-        msg.onend = function(event) {
-
+        msg.onend = function(event) { // ei toimi? tilalle timeout
             document.getElementById("suu-auki").style.display = "none";
             document.getElementById("suu").style.display = "block";
         }
+
+        setTimeout(function () {
+            document.getElementById("suu-auki").style.display = "none";
+            document.getElementById("suu").style.display = "block";
+            }, 4750);
     }
 
 
