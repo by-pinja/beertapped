@@ -9,8 +9,7 @@
 }
 
 .bubbles_bg {
-    background: #0E67A7;
-    bottom: 0;
+    /* background: #0E67A7; */
     display: block;
     height: 420px;
     position: absolute;
