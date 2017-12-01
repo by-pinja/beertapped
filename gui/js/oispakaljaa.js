@@ -18,7 +18,7 @@
     "use strict";
 
     var ENTER_KEY_CODE = 13;
-    var queryInput, resultDiv, sendButton;
+    var queryInput, resultDiv, sendButton, tuoppi;
     var accessToken = "6bf0429a1bb24bb9a04ebad4066dfcc0";
 
     window.onload = init;
@@ -27,10 +27,60 @@
         queryInput = document.getElementById("q");
         sendButton = document.getElementById("sendButton");
         resultDiv = document.getElementById("result");
+        tuoppi = document.getElementById("tuoppi-wrapper");
         window.init(accessToken);
         queryInput.addEventListener("keydown", queryInputKeyDown);
         sendButton.addEventListener("click", sendButtonClick);
+        tuoppi.addEventListener("click", kubla);
+
+        setTimeout(function () {
+            setResponseOnNode("Well h..");
+
+            setTimeout(function () {
+                createPictureTaker();
+            }, 2500);
+
+        }, 4000);
+
     }
+
+    function createPictureTaker(response) {
+        var bubbleContainer = document.getElementById("bubbles");
+        bubbleContainer.innerHTML +=
+            "<div class=\"bubble-wrap\">\n" +
+            "<div class=\"bubble right\">\n" +
+            "Sorry, my voice was a bit down! Please start talking to me..." +
+            "<div id=\"take_a_picture\" class=\"picture-btn\" href=\"#\" rel=\"modal:open\">OR TAKE A PICTURE</div>" +
+            "</div>\n" +
+            "</div>";
+
+        response = "Sorry, my voice was a bit down! Please start talking to me... Or take a picture";
+        scrollPosition();
+
+        document.getElementById("suu").style.display = "none";
+
+        document.getElementById("suu-auki").style.display = "block";
+
+        var msg = new SpeechSynthesisUtterance(response);
+
+        var voices = speechSynthesis.getVoices();
+
+        for(var i = 0; i < voices.length ; i++) {
+            if (voices[i].lang == 'fi-FI') {
+                msg.voice = voices[i];
+            }
+        }
+
+        window.speechSynthesis.speak(msg);
+
+        msg.onend = function(event) {
+
+            document.getElementById("suu-auki").style.display = "none";
+            document.getElementById("suu").style.display = "block";
+        }
+    }
+
+
 
     function scrollPosition() {
         var elem = document.getElementById('bubbles');
@@ -48,6 +98,8 @@
         messageSend();
     }
 
+
+
     function createQueryNode(query) {
         var bubbleContainer = document.getElementById("bubbles");
         bubbleContainer.innerHTML +=
@@ -62,36 +114,38 @@
     }
 
     function setResponseOnNode(response) {
-        var bubbleContainer = document.getElementById("bubbles");
-        bubbleContainer.innerHTML +=
-            "<div class=\"bubble-wrap\">\n" +
-            "<div class=\"bubble right\">\n" +
-            response +
-            "</div>\n" +
-            "</div>";
+        setTimeout(function () {
+            var bubbleContainer = document.getElementById("bubbles");
+            bubbleContainer.innerHTML +=
+                "<div class=\"bubble-wrap\">\n" +
+                "<div class=\"bubble right\">\n" +
+                response +
+                "</div>\n" +
+                "</div>";
 
-        scrollPosition();
+            scrollPosition();
 
-        document.getElementById("suu").style.display = "none";
-        document.getElementById("suu-alku").style.display = "none";
-        document.getElementById("suu-auki").style.display = "block";
+            document.getElementById("suu").style.display = "none";
+            document.getElementById("suu-alku").style.display = "none";
+            document.getElementById("suu-auki").style.display = "block";
 
-        var msg = new SpeechSynthesisUtterance(response);
+            var msg = new SpeechSynthesisUtterance(response);
 
-        var voices = speechSynthesis.getVoices();
+            var voices = speechSynthesis.getVoices();
 
-        for(var i = 0; i < voices.length ; i++) {
-            if (voices[i].lang == 'fi-FI') {
-                msg.voice = voices[i];
+            for(var i = 0; i < voices.length ; i++) {
+                if (voices[i].lang == 'fi-FI') {
+                    msg.voice = voices[i];
+                }
             }
-        }
 
-        window.speechSynthesis.speak(msg);
+            window.speechSynthesis.speak(msg);
 
-        msg.onend = function(event) {
-            document.getElementById("suu-auki").style.display = "none";
-            document.getElementById("suu").style.display = "block";
-        }
+            msg.onend = function(event) {
+                document.getElementById("suu-auki").style.display = "none";
+                document.getElementById("suu").style.display = "block";
+            }
+        }, 600);
     }
 
     function setResponseJSON(response) {
@@ -112,7 +166,7 @@
                         setResponseOnNode("May I recommend " + data.andTheWinnerIs);
                     }, 2000);
                 });
-            }, 10000);
+            }, 7000);
         }
     }
 
@@ -141,8 +195,14 @@
             })
             .catch(function(err) {
                 setResponseJSON(err);
-                setResponseOnNode("Something goes wrong");
+                setResponseOnNode("Something goes wrong. This is bad. I need a beer.");
             });
     }
 
+    function kubla(event) {
+        document.getElementById("background-wrap").style.visibility = "visible";
+        setResponseOnNode("Beer is good, race was bad. Black round Pirelli. Have some bubbles, hoepoenassu.");
+    }
+
 })();
+

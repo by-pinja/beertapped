@@ -43,10 +43,12 @@
 
 .bubble.puhe {
     min-width:300px;
+    padding: 0px 8px 0px 20px;
 }
 
 .puhetekstialue {
     border: 0;
+    height: 62px;
 }
 
 .bubble.left {
@@ -64,7 +66,7 @@
     font-weight: 600;
 }
 
-.bubble-wrap:last-child {
+.bubble-wrap:last-child .right {
     /* margin-left: 160px; */
     /* right: 200px; */
     text-align: right;
@@ -73,9 +75,16 @@
     /* float: right; */
     /* margin-right: 370px; */
     font-weight: 600;
-    animation: ilmestys 1s 0s 1 ease;
+    animation: puhetta 0.5s 0s 1 ease;
     animation-fill-mode: forwards;
-    -webkit-animation: ilmestys 1s 0s 1 ease;
+    -webkit-animation: puhetta 0.5s 0s 1 ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.bubble-wrap:last-child .left {
+    animation: ilmestys 0.5s 0s 1 ease;
+    animation-fill-mode: forwards;
+    -webkit-animation: ilmestys 0.5s 0s 1 ease;
     -webkit-animation-fill-mode: forwards;
 }
 
