@@ -19,10 +19,18 @@ navigator.getUserMedia({video: true}, function(stream) {
 		};
 	}, function(err) {});
 
+function openPictureModal() {
+    console.log("nappia painettu")
+    $("#video_container").addClass("showMe");
+    return false;
+}
+
+/*
 $("#take_a_picture").click(function() {
   $("#video_container").addClass("showMe");
   return false;
 });
+*/
 
 $("#d").click(function() {
   $("#u").removeClass("showMe");

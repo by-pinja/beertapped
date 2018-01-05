@@ -50,7 +50,7 @@
             "<div class=\"bubble-wrap\">\n" +
             "<div class=\"bubble right\">\n" +
             "Sorry, my voice was a bit down! Please start talking to me..." +
-            "<div id=\"take_a_picture\" class=\"picture-btn\" href=\"#\" rel=\"modal:open\">OR TAKE A PICTURE</div>" +
+            "<div id=\"take_a_picture\" class=\"picture-btn\" href=\"#\" rel=\"modal:open\" onclick=\"openPictureModal()\">OR TAKE A PICTURE</div>" +
             "</div>\n" +
             "</div>";
 
@@ -83,8 +83,6 @@
             document.getElementById("suu").style.display = "block";
             }, 4750);
     }
-
-
 
     function scrollPosition() {
         var elem = document.getElementById('bubbles');
