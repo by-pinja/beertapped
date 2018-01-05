@@ -2,17 +2,21 @@
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
+
     recognition.onstart = function() {
         recognizing = true;
     };
+
     recognition.onerror = function(event) {
         console.log("Ei ollu kaljaa", event);
     };
+
     recognition.onend = function() {
         recognizing = false;
         document.getElementById("startButton").classList.remove('mikki-rec');
         document.getElementById("startButton").classList.add('mikki-off');
     };
+
     recognition.onresult = function(event) {
         var interim_transcript = '';
         var final_transcript = '';
@@ -27,13 +31,14 @@
         document.getElementById('q').value = final_transcript;
     };
 
-function startButton(event) {
-    if (recognizing) {
-        recognition.stop();
-        return;
+    function startButton(event) {
+        console.log(recognizing);
+        if (recognizing) {
+            recognition.stop();
+            return;
+        }
+        recognition.lang = 'fi-FI';
+        recognition.start();
+        document.getElementById("startButton").classList.remove('mikki-off');
+        document.getElementById("startButton").classList.add('mikki-rec');
     }
-    recognition.lang = 'fi-FI';
-    recognition.start();
-    document.getElementById("startButton").classList.remove('mikki-off');
-    document.getElementById("startButton").classList.add('mikki-rec');
-}

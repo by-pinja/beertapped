@@ -1,7 +1,7 @@
 .tuoppi-wrapper{
     position: absolute;
-    right: 6%;
-    bottom: 10%;
+    right: 80px;
+    bottom: 60px;
     z-index: 10000;
 }
 

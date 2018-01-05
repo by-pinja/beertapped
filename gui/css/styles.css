@@ -6,7 +6,7 @@ body, html{
 }
 
 body {
-    background-color: #0E67A7;
+    background-color: #000;
     background-image: url("../img/bissee.jpg");
     background-attachment: fixed, fixed;
     background-position: center, center;
@@ -14,6 +14,7 @@ body {
 }
 
 .bottomGradient {
+    opacity: 1;
     bottom: 0;
     height: 30%;
     width: 100%;
@@ -26,8 +27,8 @@ body {
 }
 
 .screen-fade {
-    height: 5%;
-    position: absolute;
+    /* height: 5%;
+    position: absolute; */
     top: 0;
     left: 0;
     right: 0;
@@ -44,6 +45,56 @@ body {
     background: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(14,103,167,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e67a7', endColorstr='#0e67a7', GradientType=0 );
     z-index: 9999;
+}
+
+#hanassa {
+    right: 50px;
+    top: 60px;
+    width: 250px;
+    bottom: 550px;
+    background: rgba(255,255,255,0.15);
+    position: absolute;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+    overflow: hidden;
+    min-height: 330px;
+}
+
+#hanassa h2 {
+    font-size: 47px;
+    margin-top: 5px;
+}
+
+#hanassa h3 {
+    font-size: 24px;
+    margin-top: 5px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.olunen {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+#hanassa p {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+#hanassa hr {
+    margin: 30px 0px;
+}
+
+.vasen {
+     text-align: left;
+}
+
+.oikea {
+     text-align: right;
 }
 
 .puhepalikka {
@@ -69,6 +120,7 @@ input:focus {
     width: 40px;
     height: 40px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .mikki-off {
@@ -82,8 +134,16 @@ input:focus {
 .mikki i {
     font-size: 32px;
     margin-left: 4px;
-    margin-top: 4px;
+    margin-top: 5px;
     color: #fff;
+    transition: 0.2s;
+}
+
+.mikki i:hover {
+    transition: 0.2s;
+    font-size: 36px;
+    margin-left: 3px;
+    margin-top: 3px;
 }
 
 .puhetekstialue {
@@ -107,14 +167,17 @@ input:focus {
     font-size: 24px;
     cursor: pointer;
     margin-top: 7px;
+    transition: 0.2s;
 }
 
 .send-btn:hover {
     background: #00affb;
+    transition: 0.2s;
+    font-size: 28px;
 }
 
 .picture-btn {
-text-align: center;
+    text-align: center;
     height: 26px;
     /* background: #0E67A7 !important; */
     /* padding: 2px 5px 6px 5px; */
@@ -125,6 +188,13 @@ text-align: center;
     cursor: pointer;
     float: right;
     padding-left: 25px;
+    transition: 0.2s;
+}
+
+.picture-btn:hover {
+    transition: 0.2s;
+    font-size: 1.1em;
+    color: #00affb !important;
 }
 
 /* Max-width 961 px */
@@ -133,6 +203,10 @@ text-align: center;
 
     body {
 
+    }
+
+    #hanassa {
+        display: none;
     }
 
     .tuoppi-wrapper {
