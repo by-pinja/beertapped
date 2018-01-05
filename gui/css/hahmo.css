@@ -10,6 +10,7 @@
 }
 
 .tuoppi{
+    transition: 1s;
     width: 196px;
     height: 260px;
     border-radius: 5px 5px 50px 50px;
@@ -27,6 +28,17 @@
   transform:scale(0) translateZ(0);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+}
+
+.tuoppi:hover, .tuoppi:hover .kahva{
+    transition: 1s;
+    border: 15px solid rgba(255, 255, 255, 0.9);
+}
+
+.tuoppi:hover .silma {
+    transition: 1s;
+    background: darkgray;
+    border: 5px solid rgba(255, 255, 255, 0.9);
 }
 
 .vaahto-sivulta{
@@ -203,6 +215,7 @@
 
 }
 .kahva{
+    transition: 1s;
     width: 30px;
     height: 123px;
     border-radius: 0px 40px 40px 0px;
@@ -268,6 +281,7 @@ width: 116px;
   opacity: 1;
   position: absolute;
   top: 70px;
+    transition: 1s;
 
 }
 .silma-holder#left{
@@ -279,6 +293,8 @@ width: 116px;
 }
 
 .silma{
+    border: 0px solid #555;
+    transition: 1s;
     width: 40px;
     height: 68px;
     border-radius: 50px;
